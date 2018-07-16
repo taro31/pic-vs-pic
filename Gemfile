@@ -48,12 +48,15 @@ end
 
 gem 'carrierwave'
 gem 'cloudinary', '~> 1.9', '>= 1.9.1'
+gem 'rmagick', '2.15.1'
 
 gem 'pry-rails'
 gem 'compass-rails','~> 2.0'
 gem 'sprockets', '2.11.0'
 gem 'hirb'
 gem 'hirb-unicode'
+
+# gem 'google-cloud-vision'
 
 
 group :production do

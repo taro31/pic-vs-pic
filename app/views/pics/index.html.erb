@@ -1,26 +1,7 @@
-<h1>こんにちは</h1>
+<h1>画像アップローダー</h1>
+<a href="/pics/new">画像を上げる</a>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-<tbody>
-
-
-
-<% @pics.each do |pic| %>
-  <tr>
-    <td><%= pic.name %></td>
-    <td><%= image_tag pic.image.to_s %></td>
-  </tr>
-<% end %>
-
-
-
-  </tbody>
-</table>
-<br>
-
+<div>
+  <p><%= @pic.name %></p>
+  <p><%= image_tag @pic.image.to_s %></p>
+</div>
