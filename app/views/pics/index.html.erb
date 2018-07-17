@@ -1,7 +1,9 @@
 <h1>画像アップローダー</h1>
 <a href="/pics/new">画像を上げる</a>
 
+<% @pics.reverse_each do |pic| %>
 <div>
-  <p><%= @pic.name %></p>
-  <p><%= image_tag @pic.image.to_s %></p>
+  <p><%= pic.name %></p>
+  <p><%= image_tag pic.image.to_s %></p>
 </div>
+<% end %>
