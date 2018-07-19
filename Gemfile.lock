@@ -81,6 +81,7 @@ GEM
       unicode-display_width (~> 0.1.1)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    httpclient (2.7.0.1)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -203,6 +204,7 @@ DEPENDENCIES
   compass-rails (~> 2.0)
   hirb
   hirb-unicode
+  httpclient
   jbuilder (~> 2.0)
   jquery-rails
   mysql2 (= 0.3.18)

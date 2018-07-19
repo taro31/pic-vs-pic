@@ -56,6 +56,7 @@ gem 'sprockets', '2.11.0'
 gem 'hirb'
 gem 'hirb-unicode'
 
+gem 'httpclient'
 # gem 'google-cloud-vision'
 
 
