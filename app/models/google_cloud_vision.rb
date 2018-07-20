@@ -1,12 +1,12 @@
 class GoogleCloudVision
+  
   def initialize
-    @file_path = Pic.last.image.to_s
-    @API_KEY = ENV['GOOGLE_API_KEY']
-    @API_URL = "https://vision.googleapis.com/v1/images:annotate?key=#{@API_KEY}"
+    @description = 0
   end
   
   def get_image
-    open(@file_path) { |image|
+    file_path = Pic.last.image.to_s
+    open(file_path) { |image|
     File.open("something.jpg","wb") do |file|
     file.puts image.read
     end
@@ -15,6 +15,8 @@ class GoogleCloudVision
   end
   
   def request
+    @API_KEY = ENV['GOOGLE_API_KEY']
+    @API_URL = "https://vision.googleapis.com/v1/images:annotate?key=#{@API_KEY}"
     # http_client = HTTPClient.new
     base64_image = Base64.strict_encode64(File.new(get_image, 'rb').read)
    
@@ -41,8 +43,7 @@ class GoogleCloudVision
     response = https.request(request, body)
     
     response_rb = JSON.parse(response.body)
-    description = response_rb["responses"][0]["textAnnotations"][0]["description"]
-
-    return description
+    @description = response_rb["responses"][0]["textAnnotations"][0]["description"]
+    
   end
 end
