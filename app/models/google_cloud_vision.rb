@@ -15,8 +15,8 @@ class GoogleCloudVision
   end
   
   def request
-    @API_KEY = ENV['GOOGLE_API_KEY']
-    @API_URL = "https://vision.googleapis.com/v1/images:annotate?key=#{@API_KEY}"
+    appid = ENV['GOOGLE_APP_ID']
+    url = "https://vision.googleapis.com/v1/images:annotate?key=#{appid}"
     # http_client = HTTPClient.new
     base64_image = Base64.strict_encode64(File.new(get_image, 'rb').read)
    
@@ -35,7 +35,7 @@ class GoogleCloudVision
     }.to_json
     
     # Google Cloud Vision APIにリクエスト投げる
-    uri = URI.parse(@API_URL)
+    uri = URI.parse(url)
     https = Net::HTTP.new(uri.host, uri.port)
     https.use_ssl = true
     request = Net::HTTP::Post.new(uri.request_uri)
